@@ -3,7 +3,7 @@
 Bu Kos merupakan sebuah landing page yang bertujuan mempertemukan customer (pencari kos) dengan kos-kosan yang telah disediakan. Customer dapat dengan mudah menentukan tempat kos-kosan sesuai dengan budget yang ada.
 
 # Live Preview
-[Click Here](https://bukos.vercel.app "Bu Kos Homepage")
+[Click Here](https://bukos.vercel.app "Bu Kos Homepage"){:target="_blank"}
 
 # Preview
 
