@@ -104,6 +104,18 @@
       </div>
     </section>
 
+    <!-- Promo Grand Opening Countdown -->
+    <section class="promo-countdown section-padding pb-0" id="promo-countdown">
+      <div class="container">
+        <div class="card text-center">
+          <div class="card-header">Promo Grand Opening Potongan Hingga 25%</div>
+          <div class="card-body">
+            <h1 id="countdown" class="display-1"></h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- About -->
     <section class="about section-padding pb-0" id="about">
       <div class="container">
@@ -313,5 +325,46 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/smoothscroll.js"></script>
     <script src="js/custom.js"></script>
+    <script>
+      // Set target waktu
+      var countDownDate = new Date("Aug 5, 2023 15:37:25").getTime();
+
+      // Update waktu tiap 1 detik
+      var x = setInterval(function () {
+        // Ambil hari ini
+        var now = new Date().getTime();
+
+        // Cari jarak dari target waktu dan hari ini
+        var distance = countDownDate - now; // satuan mili detik
+
+        /**
+         * Catatan
+         * Karena hasil jarak itu satuannya milidetik yang berarti 1 detik = 1000 millidetik maka
+         * hasil jarak / 1000 untuk mendapatkan nilai dalam satuan detik lalu dibagi kembali dengan nilai 60
+         * untuk mendapatkan hasil menit dan dibagi 60 kembali untuk mendapatkan nilai dalam satuan jam
+         * dan dibagi 24 (1 hari = 24 jam) untuk mendapatkan nilai dalam satuan hari lalu di rounded down
+         * dalam pembulatan bilangannya. Begitu juga dengan yang lainnya
+         **/
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        // Ambil sisanya lakukan hal yang sama untuk jam dengan menghilangkan *24
+        var hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        // Ambil sisanya lakukan hal yang sama untuk menit dengan menghilangkan *60
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        // Ambil sisanya lakukan hal yang sama untuk detik dengan menghilangkan *60
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+        document.getElementById("countdown").innerHTML =
+          days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+    </script>
   </body>
 </html>
